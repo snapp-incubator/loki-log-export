@@ -20,7 +20,7 @@ module.exports = function follow (opts) {
               const res = await loki({
                 url: '/loki/api/v1/query_range',
                 params: {
-                  limit: 5000,
+                  limit: 1000,
                   direction: 'forward',
                   query,
                   start: after,
