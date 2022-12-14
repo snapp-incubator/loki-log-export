@@ -18,7 +18,7 @@ export EXTRACTORS='[{
   "transform": "json"
 }]'
 
-docker run --name loki-log-export livingdocs/loki-log-export:1.0.0
+docker run --name loki-log-export ghcr.io/snapp-incubator/loki-log-export:v1.1.0
 ```
 
 Will run the log export every hour at 5 past and upload gzipped log files to s3:
