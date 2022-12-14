@@ -35,3 +35,5 @@ another-service/2020/12/01/01.log.gz
 another-service/2020/12/01/23.log.gz
 another-service/2020/12/02/00.log.gz
 ```
+
+You can Also set `S3_ENDPOINT` env for using an S3-Compatible Object Storage like Minio

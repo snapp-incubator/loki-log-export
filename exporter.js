@@ -16,11 +16,18 @@ module.exports = function createExporter (opts) {
   assert(awsSecretAccessKey, `The parameter 'opts.awsSecretAccessKey' is required.`)
   assert(lokiHost, `The parameter 'opts.lokiHost' is required.`)
 
-  const s3 = new S3({
+  s3_config = {
     region: awsRegion,
     accessKeyId: awsAccessKeyId,
     secretAccessKey: awsSecretAccessKey
-  })
+  }
+
+  if (process.env.S3_ENDPOINT) {
+    s3_config.endpoint = process.env.S3_ENDPOINT
+    s3_config.s3ForcePathStyle = true
+  }
+
+  const s3 = new S3(s3_config)
 
   const createS3WriteStream = (key) => new s3WriteStream(s3, {Bucket: awsBucket, Key: key})
 
